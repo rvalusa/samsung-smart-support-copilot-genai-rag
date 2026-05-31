@@ -4,23 +4,24 @@
 """
 
 import os
+import streamlit as st
 from pathlib import Path
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 # this loads the env variables from .env file
 _env_path = Path(__file__).parent / ".env"
-load_dotenv(_env_path)
+# load_dotenv(_env_path)
 
-print(f"Azure API Version {os.getenv("AZURE_API_VERSION")}")
+print(f"Azure API Version {st.secrets["AZURE_API_VERSION"]}")
 
 # Open AI credentials
-AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
-AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
-AZURE_OPENAI_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION")
+AZURE_OPENAI_API_KEY = st.secrets["AZURE_OPENAI_API_KEY"]
+AZURE_OPENAI_ENDPOINT = st.secrets["AZURE_OPENAI_ENDPOINT"]
+AZURE_OPENAI_API_VERSION = st.secrets["AZURE_OPENAI_API_VERSION"]
 
 # Deployment names
-AZURE_OPENAI_DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
-AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME")
+AZURE_OPENAI_DEPLOYMENT_NAME = st.secrets["AZURE_OPENAI_DEPLOYMENT_NAME"]
+AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME = st.secrets["AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME"]
 
 # ---------------------------------
 # APP LEVEL SETTINGS
